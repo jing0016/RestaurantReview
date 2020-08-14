@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RestaurantReviewService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/OnlineService/RestaurantReviewService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/OnlineService/RestaurantReviewService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/OnlineService/RestaurantReviewService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Lab6Service" />
+      <xsd:import schemaLocation="http://localhost/OnlineService/RestaurantReviewService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRestaurantReviewService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantNames" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantByName" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantsByRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantsByRating" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_GetRestaurantsByRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRestaurantsByRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_SaveRestaurant_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRestaurant" />
+  </wsdl:message>
+  <wsdl:message name="IRestaurantReviewService_SaveRestaurant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRestaurantResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRestaurantReviewService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetData" message="tns:IRestaurantReviewService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetDataResponse" message="tns:IRestaurantReviewService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetDataUsingDataContract" message="tns:IRestaurantReviewService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetDataUsingDataContractResponse" message="tns:IRestaurantReviewService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantNames" message="tns:IRestaurantReviewService_GetRestaurantNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantNamesResponse" message="tns:IRestaurantReviewService_GetRestaurantNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantByName" message="tns:IRestaurantReviewService_GetRestaurantByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantByNameResponse" message="tns:IRestaurantReviewService_GetRestaurantByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantsByRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantsByRating" message="tns:IRestaurantReviewService_GetRestaurantsByRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/GetRestaurantsByRatingResponse" message="tns:IRestaurantReviewService_GetRestaurantsByRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRestaurant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestaurantReviewService/SaveRestaurant" message="tns:IRestaurantReviewService_SaveRestaurant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestaurantReviewService/SaveRestaurantResponse" message="tns:IRestaurantReviewService_SaveRestaurant_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRestaurantReviewService" type="tns:IRestaurantReviewService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantNames">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/GetRestaurantNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantByName">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/GetRestaurantByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRestaurantsByRating">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/GetRestaurantsByRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRestaurant">
+      <soap:operation soapAction="http://tempuri.org/IRestaurantReviewService/SaveRestaurant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RestaurantReviewService">
+    <wsdl:port name="BasicHttpBinding_IRestaurantReviewService" binding="tns:BasicHttpBinding_IRestaurantReviewService">
+      <soap:address location="http://localhost/OnlineService/RestaurantReviewService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

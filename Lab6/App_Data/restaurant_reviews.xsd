@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:target="www.algonquincollege.com/onlineservice/reviews"
+           targetNamespace="www.algonquincollege.com/onlineservice/reviews">
+  
+  <xs:element name="restaurants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="target:restaurant" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="restaurant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element ref="target:logo"/>
+        <xs:element name="location" type="target:AddressType" />
+        <xs:element name="phone" type="xs:string" />
+        <xs:element name="rating" type="xs:int" />
+        <xs:element name="date" type="xs:date" />
+        <xs:element name="reviewer" type="xs:string" />
+        <xs:element name="summary" type="xs:string" />
+        <xs:element ref="target:appetizers" />
+        <xs:element ref="target:entrees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="logo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="imagefile" type="xs:string" />
+        <xs:element name="width" type="target:imageDimensionType"/>
+        <xs:element name="height" type="target:imageDimensionType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="imageDimensionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute default="pixel" name="unit" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="appetizers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="target:menuitem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="entrees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="target:menuitem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="menuitem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="description" type="xs:string"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="price" type="target:PriceType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="PriceType" >
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="currency" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="cad" />
+              <xs:enumeration value="usd" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="quantity" type="xs:int" default="1" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+ 
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="street" type="xs:string" />
+      <xs:element name="city" type="xs:string" />
+      <xs:element name="provstate" type="xs:string"/>
+      <xs:element name="postalzipcode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
